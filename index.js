@@ -15,7 +15,7 @@ const quoteFilePath = path.join(__dirname, 'quote.txt');
 const indexPath = path.join(__dirname, 'index.html');
 
 // Ensure the quote ends with a period
-const ensurePeriod = quote => quote.trim().endsWith('.') ? quote.trim() : quote.trim() + '.';
+const ensurePeriod = quote => quote.endsWith('.') ? quote : quote + '.';
 
 // Serve the index.html file
 app.get('/', (req, res) => {
@@ -31,7 +31,10 @@ app.get('/add-quote', (req, res) => {
       return;
     }
 
-    const quotes = data.split('\n').map(line => ensurePeriod(line.trim())).filter(line => line);
+    // Split the data by newlines, trim each line, ensure it ends with a period, and filter out any empty lines
+    const quotes = data.split('\n')
+      .map(line => ensurePeriod(line.trim()))
+      .filter(line => line && line !== '.');  // Filter out empty lines and lines that are just a period
 
     // Read the index.html file
     fs.readFile(indexPath, 'utf8', (err, htmlData) => {

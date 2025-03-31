@@ -33,6 +33,8 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">Certfications</a></li>
                 </ul>
             </div>
+            <a href="https://bhikesh-resume.s3.ap-south-1.amazonaws.com/Bhikesh_Khute_Resume-31032025.pdf" id="downloadButton" class="btn btn-dark position-fixed text-center" download>Download Resume</a>
+         <!--   <a href="assets/resume.pdf" class="btn btn-dark position-fixed bottom-0 w-50 py-1 text-center" download>Download Resume</a> -->
         </nav>
 	<!-- Duplicate Page Content-->
         <!-- Page Content-->
@@ -262,5 +264,21 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            function adjustDownloadButton() {
+                let button = document.getElementById("downloadButton");
+                if (window.innerWidth < 992) { // Mobile (Bootstrap lg breakpoint)
+                    button.classList.remove("top-3", "end-0", "m-3", "d-lg-inline");
+                    button.classList.add("bottom-0", "w-50", "py-1");
+                } else { // Desktop
+                    button.classList.remove("bottom-0", "w-50", "py-1");
+                    button.classList.add("top-3", "end-0", "m-3", "d-lg-inline");
+                }
+            }
+        
+            // Run function on page load and on window resize
+            adjustDownloadButton();
+            window.addEventListener("resize", adjustDownloadButton);
+        </script>
     </body>
 </html>

@@ -1,10 +1,8 @@
 require('dotenv').config();
 const path = require('path');
-const express = require('express');
 const axios = require('axios');
 const IPINFO_TOKEN = process.env.IPINFO_TOKEN;
 const fs = require('fs');
-const path = require('path');
 const express = require('express');
 const app = express();
 const PORT = 3005;

@@ -11,6 +11,7 @@ const PORT = 3005;
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/css', express.static(path.join(__dirname, 'css')));
+app.set('trust proxy', true);
 
 // Paths to your files
 const indexPath = path.join(__dirname, 'index.html');

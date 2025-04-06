@@ -18,11 +18,17 @@ const indexPath = path.join(__dirname, 'index.html');
 
 // Helper to get real IP
 async function getClientIP(req) {
-  let ip = req.headers['x-forwarded-for']?.split(',')[0]
-    || req.socket.remoteAddress
-    || req.ip;
+  let ip = req.headers['x-forwarded-for']
+    ? req.headers['x-forwarded-for'].split(',')[0].trim()
+    : req.socket.remoteAddress;
 
-  if (ip === '::1' || ip === '127.0.0.1' || ip === '::ffff:127.0.0.1') {
+  // If localhost or internal Docker IP, fallback to public IP
+  if (
+    ip === '::1' ||
+    ip === '127.0.0.1' ||
+    ip === '::ffff:127.0.0.1' ||
+    ip.startsWith('::ffff:172.')
+  ) {
     try {
       const res = await axios.get('https://api.ipify.org?format=json');
       ip = res.data.ip;
@@ -33,6 +39,7 @@ async function getClientIP(req) {
 
   return ip;
 }
+
 
 // Serve the index.html file
 app.get('/', async (req, res) => {

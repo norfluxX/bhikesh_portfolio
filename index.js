@@ -35,7 +35,7 @@ async function getClientIP(req) {
 }
 
 // Serve the index.html file
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
 
   const indexPath = path.join(__dirname, 'index.html');
 

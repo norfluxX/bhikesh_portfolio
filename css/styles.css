@@ -11040,3 +11040,17 @@ section.resume-section .resume-section-content {
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
 }
+
+#rabbit {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  transition: transform 600ms linear;
+  z-index: 9999;
+}
+
+#rabbit svg {
+  width: 100%;
+  height: 100%;
+}

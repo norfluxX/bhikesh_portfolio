@@ -15,6 +15,19 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+            <div id="rabbit" aria-hidden="true">
+            <!-- your parrot SVG -->
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img">
+                <g>
+                <path d="M20 10c6-8 20-8 26 0 4 6 2 14-2 18l6 10c2 4-2 8-6 6l-9-5-9 5c-4 2-8-2-6-6l6-10c-4-4-6-12-2-18z"
+                fill="#00cc44" stroke="#006622" stroke-width="2"/>
+                <circle cx="38" cy="20" r="3" fill="#000"/>
+                <path d="M42 17c3 1 4 4 1 6" stroke="#ffaa00" stroke-width="2" fill="none"/>
+                <path d="M28 33l8 4 8-4" stroke="#008800" stroke-width="3" fill="none" stroke-linecap="round"/>
+                </g>
+            </svg>
+            </div>
+
         <!-- Navigations-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
@@ -31,6 +44,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#certifications">Certfications</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blogs">Blogs</a></li>
                 </ul>
             </div>
             <a href="https://bhikesh-resume.s3.ap-south-1.amazonaws.com/Bhikesh_Khute_Resume.pdf" id="downloadButton" class="btn btn-dark position-fixed text-center" target="_blank" download>Download Resume</a>        </nav>
@@ -64,6 +78,18 @@
                 <div class="resume-section-content">
                     <h2 class="mb-5">Experience</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                        <h3 class="mb-0">Senior Software Engineer</h3>
+                        <div class="subheading mb-3"><a href="https://www.recro.io/" target="_blank">Recro (Bengaluru,Karnataka) </a></div>
+                        <p>
+                            <ul>
+                            <li>Just Joined</li>
+                            </ul>
+                        </p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">December 2025 - Present</span></div>
+                        </div>
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Site Reliability Engineer</h3>
                             <div class="subheading mb-3"><a href="https://www.neurealm.com/" target="_blank">NeuRealm | Formerly GAVS Technologies (Pune, Maharashtra) </a></div>
@@ -178,7 +204,7 @@
                             </div>
                             <br>
                             <div><strong>Source Code</strong>: <a href="https://github.com/norfluxX/event-reg-system.git" target="_blank">🏹</a></div><br>
-                            <div><strong> Live URL: </strong><a href="https://eventpro.chmod.life" target="_blank">https://eventpro.chmod.life</a></div>
+                            <div><strong> Live URL: </strong><a href="https://eventpro.mountlife.fun" target="_blank">https://eventpro.mountlife.fun</a></div>
                         </div><br>
                         <div class="flex-grow-1">
                             <h3 class="mb-2">Chat Messaging Application using RUST</h3>
@@ -186,7 +212,7 @@
                             </div>
                             <br>
                             <div><strong>Source Code</strong>: <a href="https://github.com/norfluxX/rust-chat-app.git" target="_blank">🏹</a></div><br>
-                            <div><strong> Live URL: </strong><a href="https://chat.chmod.life" target="_blank">https://chat.chmod.life</a></div>
+                            <div><strong> Live URL: </strong><a href="https://chat.mountlife.fun" target="_blank">https://chat.mountlife.fun</a></div>
                         </div><br>
                         <div class="flex-grow-1">
                             <h3 class="mb-2">Containarized Java application using a CI-CD pipeline</h3>
@@ -285,6 +311,23 @@
                     <img src="assets/img/aws-sol-arch-associate.png" alt="AWS Badge" height="200px" width="200px" />
                 </div>
             </section>
+            <hr class="m-0" />
+            <!-- Blogs -->
+            <section class="resume-section" id="blogs">
+                <div class="blogs-section-content">
+                    <h2 class="mb-5">Blogs</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-2">Installation of Kubernetes (v1.29) on air-gapped Linux system</h3>
+                            <div>In this blog, I have explained the step-by-step process to install Kubernetes on air-gapped Linux systems. The blog covers downloading necessary binaries, setting up a local container registry, configuring networking, and initializing the cluster without internet access.
+                            </div>
+                            <br>
+                            <div><strong> Blog URL ✍️ ❯❯❯ </strong><a href="https://dev.to/bhikesh_khute_07ff9100147/time-less-kubernetes-581b" target="_blank">URL</a></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -305,6 +348,50 @@
             // Run function on page load and on window resize
             adjustDownloadButton();
             window.addEventListener("resize", adjustDownloadButton);
+
+            // Parrot Animation
+                        (function(){
+            const rabbit = document.getElementById('rabbit');
+            const size = 20;
+
+            function rand(min, max){
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function clamp(v, min, max){ return Math.max(min, Math.min(max, v)); }
+
+            function moveRandom(){
+                const padding = 6;
+                const vw = window.innerWidth;
+                const vh = window.innerHeight;
+                const maxX = vw - size - padding;
+                const maxY = vh - size - padding;
+
+                const x = rand(padding, maxX);
+                const y = rand(padding, maxY);
+
+                rabbit.style.transform = `translate(${x}px, ${y}px)`;
+
+                timer = setTimeout(moveRandom, rand(500, 1800));
+            }
+
+            let timer = null;
+
+            const startX = (window.innerWidth - size)/2;
+            const startY = (window.innerHeight - size)/2;
+            rabbit.style.transform = `translate(${startX}px, ${startY}px)`;
+
+            setTimeout(moveRandom, 300);
+
+            document.addEventListener('click', (e) => {
+                const x = clamp(e.clientX - size/2, 4, window.innerWidth - size);
+                const y = clamp(e.clientY - size/2, 4, window.innerHeight - size);
+                rabbit.style.transform = `translate(${x}px, ${y}px)`;
+
+                clearTimeout(timer);
+                timer = setTimeout(moveRandom, 900);
+            });
+            })();
         </script>
     </body>
 </html>
